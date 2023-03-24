@@ -2,13 +2,15 @@
 
 ## State
 
-State 状态就是指数据，通过State可以自动更新组件。状态更新是异步的，这意味着 React 可能会把多个 `setState()` 集中在一起批量更新。
+State 状态就是指数据，通过State可以自动更新组件。状态更新是异步的，这意味着 React 可能会把多个 `setState()` 集中在一起批量更新。与props的区别就是 state 是私有的，并且完全受控于当前组件。State 完全是组件私有的。
 
 
 
 ### 更新State
 
 #### 初始化 state
+
+写法一
 
 ```
 class MyComponent extends React.Component {
@@ -30,6 +32,31 @@ class MyComponent extends React.Component {
   }
 };
 ```
+
+
+
+写法二（推荐这种写法）
+
+```
+class MyComponent extends React.Component {
+  // 初始化state
+	state = {
+		name: 'Initial State'
+	}
+ 
+  render() {
+    return (
+      <div>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
+```
+
+
+
+
 
 #### 更新state数据
 
